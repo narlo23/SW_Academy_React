@@ -6,26 +6,26 @@ function App() {
     <div>
       TotalCount: {totalCount}
       <Counter
-        onIncrease={(count) => {
+        onIncrease={() => {
           setTotalCount(totalCount + 1);
         }}
-        onDecrease={(count) => {
+        onDecrease={() => {
           setTotalCount(totalCount - 1);
         }}
       />
       <Counter
-        onIncrease={(count) => {
+        onIncrease={() => {
           setTotalCount(totalCount + 1);
         }}
-        onDecrease={(count) => {
+        onDecrease={() => {
           setTotalCount(totalCount - 1);
         }}
       />
       <Counter
-        onIncrease={(count) => {
+        onIncrease={() => {
           setTotalCount(totalCount + 1);
         }}
-        onDecrease={(count) => {
+        onDecrease={() => {
           setTotalCount(totalCount - 1);
         }}
       />
