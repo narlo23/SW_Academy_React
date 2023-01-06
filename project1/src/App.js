@@ -1,34 +1,16 @@
-import { useState, useEffect } from "react";
-import Counter from "./Components/Counter";
+import { useRef } from "react";
+import AutoCounter from "./Components/AutoCounter";
+import Input from "./Components/Input";
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log(`Clicked ${count} times.`);
-  }, [count]);
-
-  useEffect(() => {
-    console.log("Component Loaded");
-    const handleScroll = () => {
-      console.log(window.scrollY);
-    };
-    document.addEventListener("scroll", handleScroll);
-    //컴포넌트가 제거될 때 실행
-    return () => document.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  const inputRef = useRef();
   return (
     <div>
-      <div>You clicked {count} times</div>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        +
-      </button>
-      <div style={{ height: 10000 }}></div>
+      <Input ref={inputRef} />
+      <button onClick={() => inputRef.current.focus()}>Focus</button>
+
+      <AutoCounter />
     </div>
   );
 }
+
 export default App;
