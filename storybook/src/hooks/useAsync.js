@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useAsyncFn from "./useAsyncFn";
+import { useAsyncFn } from "./";
 
 const useAsync = (fn, deps) => {
   const [state, callback] = useAsyncFn(fn, deps);

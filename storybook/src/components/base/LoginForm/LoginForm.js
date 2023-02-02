@@ -1,6 +1,6 @@
 import Input from "./Input";
 import Button from "./Button";
-import useForm from "../../../hooks/useForm";
+import { useForm } from "../../../hooks";
 import ErrorText from "./ErrorText";
 import CardForm from "./CardForm";
 import Title from "./Title";

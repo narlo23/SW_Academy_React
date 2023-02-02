@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import useRafState from "./useRafState";
+import { useRafState } from "./";
 
 const useScroll = () => {
   const [state, setState] = useRafState({ x: 0, y: 0 });

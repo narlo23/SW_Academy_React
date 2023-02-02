@@ -27,7 +27,6 @@ const ToastManager = ({ bind }) => {
   }, []);
 
   useEffect(() => {
-    console.log("test");
     bind(createToast);
   }, [bind, createToast]);
 

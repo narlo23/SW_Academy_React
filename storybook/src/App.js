@@ -1,42 +1,17 @@
-import axios from "axios";
-import { useCallback } from "react";
-import Header from "./components/Header";
-import Spinner from "./components/Spinner";
-import useAsync from "./hooks/useAsync";
+import { Routes, Route } from "react-router";
+import { PostsPage, PostPage, NotFoundPage } from "./pages";
+import DefaultTemplate from "./components/template/DefaultTemplate";
 
 const App = () => {
-  const initialPosts = useAsync(async () => {
-    return await axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.data);
-  }, []);
-
-  const handleAddPost = useCallback(async (post) => {
-    return await axios
-      .post(`https://jsonplaceholder.typicode.com/posts`, post)
-      .then((response) => response.data);
-  }, []);
-
-  const handleDeletePost = useCallback(async (id) => {
-    return await axios
-      .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(() => ({ id }));
-  }, []);
-
   return (
-    <div>
-      <Header>Posts</Header>
-      <ul>
-        {initialPosts.isLoading ? (
-          <Spinner />
-        ) : (
-          (initialPosts.value || []).map((post) => (
-            <li key={post.id}>{post.title}</li>
-          ))
-        )}
-      </ul>
-    </div>
+    <DefaultTemplate>
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} exact></Route>
+        <Route path="/posts" element={<PostsPage />} exact></Route>
+        <Route path="/posts/:postId" element={<PostPage />} exact></Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
+      </Routes>
+    </DefaultTemplate>
   );
 };
-
 export default App;
