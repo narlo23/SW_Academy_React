@@ -1,4 +1,4 @@
-import Tab from "../components/Tab";
+import { Tab } from "../components";
 
 export default {
   title: "Component/Tab",

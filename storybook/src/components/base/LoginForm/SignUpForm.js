@@ -1,18 +1,19 @@
 import Input from "./Input";
-import Button from "./Button";
-import useForm from "../../hooks/useForm";
-import ErrorText from "./ErrorText";
 import CardForm from "./CardForm";
 import Title from "./Title";
+import useForm from "../../../hooks/useForm";
+import ErrorText from "./ErrorText";
+import Button from "./Button";
 
-const LoginForm = ({ onSubmit }) => {
+const SignUpForm = ({ onSubmit }) => {
   const { errors, isLoading, handleChange, handleSubmit } = useForm({
     initialValues: {
       name: "",
       password: "",
+      passwordConfirm: "",
     },
     onSubmit,
-    validate: ({ name, password }) => {
+    validate: ({ name, password, passwordConfirm }) => {
       const newErrors = {};
       if (!name) {
         newErrors.name = "이름을 입력해주세요.";
@@ -20,13 +21,16 @@ const LoginForm = ({ onSubmit }) => {
       if (!password) {
         newErrors.password = "비밀번호를 입력해주세요.";
       }
+      if (password !== passwordConfirm) {
+        newErrors.passwordConfirm = "비밀번호가 일치하지 않습니다.";
+      }
       return newErrors;
     },
   });
 
   return (
     <CardForm onSubmit={handleSubmit}>
-      <Title>Login</Title>
+      <Title>Sign Up</Title>
       <Input
         type="text"
         name="name"
@@ -42,11 +46,21 @@ const LoginForm = ({ onSubmit }) => {
         onChange={handleChange}
       />
       {errors.password && <ErrorText>{errors.password}</ErrorText>}
+      <Input
+        type="password"
+        name="passwordConfirm"
+        placeholder="Password Confirm"
+        style={{ marginTop: 8 }}
+        onChange={handleChange}
+      />
+      {errors.passwordConfirm && (
+        <ErrorText>{errors.passwordConfirm}</ErrorText>
+      )}
       <Button type="submit" disabled={isLoading} style={{ marginTop: 16 }}>
-        Login
+        Sign Up
       </Button>
     </CardForm>
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

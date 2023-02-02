@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../components/Image";
+import { Image } from "../components";
 
 export default {
   title: "Component/Image",

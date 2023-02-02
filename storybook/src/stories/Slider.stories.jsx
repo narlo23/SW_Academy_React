@@ -1,7 +1,4 @@
-import Slider from "../components/Slider";
-import Spacer from "../components/Spacer";
-import Icon from "../components/Icon";
-
+import { Slider, Spacer, Icon } from "../components";
 export default {
   title: "Component/Slider",
   component: Slider,

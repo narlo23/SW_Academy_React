@@ -1,4 +1,4 @@
-import Title from "../components/LoginForm/Title";
+import { Title } from "../components";
 
 export default {
   title: "Component/Title",

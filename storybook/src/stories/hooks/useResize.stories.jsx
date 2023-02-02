@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import Image from "../../components/Image";
+import { Image } from "../../components";
 import useResize from "../../hooks/useResize";
 
 export default {

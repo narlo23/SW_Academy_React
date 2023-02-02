@@ -1,4 +1,4 @@
-import Button from "../components/LoginForm/Button";
+import { Button } from "../components";
 
 export default {
   title: "Component/Button",

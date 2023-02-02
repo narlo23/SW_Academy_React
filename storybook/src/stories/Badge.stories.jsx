@@ -1,4 +1,4 @@
-import Badge from "../components/Badge";
+import { Badge } from "../components";
 import styled from "@emotion/styled";
 
 const Div = styled.div`

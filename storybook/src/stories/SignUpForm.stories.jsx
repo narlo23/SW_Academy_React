@@ -1,4 +1,4 @@
-import SignUpForm from "../components/LoginForm/SignUpForm";
+import { SignUpForm } from "../components";
 
 export default {
   title: "Component/SignUpForm",

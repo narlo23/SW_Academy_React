@@ -1,4 +1,4 @@
-import ErrorText from "../components/LoginForm/ErrorText";
+import { ErrorText } from "../components";
 
 export default {
   title: "Component/ErrorText",
